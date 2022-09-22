@@ -9,3 +9,23 @@ html, body {
     width:100%;
     position:absolute;
 }
+
+    .container_1 > h1 {
+        text-align: center;
+    }
+
+    .container_2 {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        background-color: bisque; 
+        height: 60vh; 
+        width: 100%;
+    }
+
+        .container_3 {
+            background-color: antiquewhite;
+            height: 100%;
+            width: 50vw;
+            border-style: solid;
+        }

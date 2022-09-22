@@ -24,8 +24,15 @@ html, body {
     }
 
         .container_3 {
+            display: flex;
             background-color: antiquewhite;
             height: 100%;
             width: 50vw;
             border-style: solid;
+            justify-content: space-around;
         }
+
+            .single_cell {
+                border-style: solid;
+                background-color: greenyellow;
+            }

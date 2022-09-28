@@ -19,7 +19,7 @@ html, body {
         justify-content: center; 
         align-items: center; 
         background-color: bisque; 
-        height: 60vh; 
+        height: 60%; 
         width: 100%;
     }
 
@@ -27,9 +27,9 @@ html, body {
             display: flex;
             background-color: antiquewhite;
             height: 100%;
-            width: 50vw;
+            width: 50%;
             flex-direction: row;
-            flex-wrap: wrap
+            flex-wrap: wrap;
         }
 
             .single_cell {

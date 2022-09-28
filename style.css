@@ -28,11 +28,11 @@ html, body {
             background-color: antiquewhite;
             height: 100%;
             width: 50vw;
-            border-style: solid;
-            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap
         }
 
             .single_cell {
-                border-style: solid;
+                box-shadow:0px 0px 0px 1px red inset;
                 background-color: greenyellow;
             }

@@ -1,4 +1,5 @@
 window.onload = () => {
+  appendChilds(12)
   calculateIndividualTile()
 };
 
@@ -13,18 +14,29 @@ convertPixelToVw = (pixelWidth) => {
  }
 
 calculateIndividualTile = () => {
-  const container3 = document.getElementsByClassName("container_3");
+    const container3 = document.getElementsByClassName("container_3");
 
-  const fatherElementVw = convertPixelToVw(container3[0].clientWidth);
-  const fatherElementVh = convertPixelToVh(container3[0].clientHeight);
+    const fatherElementVw = convertPixelToVw(container3[0].clientWidth);
+    const fatherElementVh = convertPixelToVh(container3[0].clientHeight);
 
-  const childrenElementVw = Number((fatherElementVw / 3).toFixed(1) - 0.1)
-  const childrenElementVh = Number((fatherElementVh / 4).toFixed(1))
+    const childrenElementVw = Number((fatherElementVw / 3).toFixed(1) - 0.1)
+    const childrenElementVh = Number((fatherElementVh / 4).toFixed(1))
 
-  let single_cell = document.getElementsByClassName("single_cell");
+    let single_cell = document.getElementsByClassName("single_cell");
 
-  for (let i = 0; i < single_cell.length; i++) {
-    single_cell[i].style.width = `${childrenElementVw}vw`
-    single_cell[i].style.height = `${childrenElementVh}vh`
+    for (let i = 0; i < single_cell.length; i++) {
+      single_cell[i].style.width = `${childrenElementVw}vw`
+      single_cell[i].style.height = `${childrenElementVh}vh`
+  }
+}
+
+appendChilds = (numberOfIndividualTiles) => {
+  for (let i = 0; i < numberOfIndividualTiles; i++) {
+  const newDiv =  document.createElement("div");
+  newDiv.setAttribute('class', 'single_cell');
+  document.getElementsByClassName("container_3")[0].appendChild(newDiv);
  }
 }
+
+
+

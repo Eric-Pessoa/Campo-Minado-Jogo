@@ -45,7 +45,7 @@ placeBombs = () => {
     const randomNumber = Math.floor(Math.random() * 101);
     if(randomNumber > 50 && randomNumber % 2 === 0) {
       const selectedDiv = document.getElementsByClassName("single_cell")[i];
-      selectedDiv.classList.add("bombIdentifier");
+      selectedDiv.classList.add("bomb");
     }
   }
 }
@@ -55,8 +55,12 @@ addBombEventListenerToTiles = () => {
     const selectedDiv =  document.getElementsByClassName("single_cell")[i]
     selectedDiv.addEventListener("click", () => {
       for (let i = 0; i < selectedDiv.classList.length; i++) {
-        if(selectedDiv.classList[i] === 'bombIdentifier') {
-          selectedDiv.classList.add('bomb')
+        console.log('TA')
+        if(selectedDiv.classList[i] === 'bomb') {
+          console.log('TEC')
+          selectedDiv.style.backgroundImage = 'url(assets/djeisonzinho.png)'
+          selectedDiv.style.objectFit = 'contain'
+
         }
       }
       }

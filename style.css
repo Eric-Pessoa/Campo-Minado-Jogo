@@ -2,11 +2,8 @@ html, body {
   margin: 0px;
 }
 
-.bombIdentifier {}
-
 .bomb {
-    background-image: url('assets/djeisonzinho.png');
-    object-fit: contain;
+
 }
 
 .container_1 {

@@ -2,12 +2,12 @@ html, body {
   margin: 0px;
 }
 
+.bombIdentifier {}
+
 .bomb {
-    background-color: maroon;
-    box-shadow:0px 0px 0px 1px black inset;
-
+    background-image: url('assets/djeisonzinho.png');
+    object-fit: contain;
 }
-
 
 .container_1 {
     background-color: aquamarine;

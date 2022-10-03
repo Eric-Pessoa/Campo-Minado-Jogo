@@ -2,6 +2,7 @@ window.onload = () => {
   appendChilds(380)
   calculateIndividualTile()
   placeBombs()
+  addBombEventListenerToTiles()
 };
 
 convertPixelToVw = (pixelWidth) => {
@@ -34,7 +35,7 @@ calculateIndividualTile = () => {
 appendChilds = (numberOfIndividualTiles) => {
   for (let i = 0; i < numberOfIndividualTiles; i++) {
   const newDiv =  document.createElement("div");
-  newDiv.setAttribute('class', 'single_cell');
+  newDiv.classList.add('single_cell');
   document.getElementsByClassName("container_3")[0].appendChild(newDiv);
  }
 }
@@ -44,8 +45,22 @@ placeBombs = () => {
     const randomNumber = Math.floor(Math.random() * 101);
     if(randomNumber > 50 && randomNumber % 2 === 0) {
       const selectedDiv = document.getElementsByClassName("single_cell")[i];
-      selectedDiv.setAttribute('class', 'bomb');
+      selectedDiv.classList.add("bombIdentifier");
     }
+  }
+}
+
+addBombEventListenerToTiles = () => {
+  for (let i = 0; i < document.getElementsByClassName("single_cell").length; i++) {
+    const selectedDiv =  document.getElementsByClassName("single_cell")[i]
+    selectedDiv.addEventListener("click", () => {
+      for (let i = 0; i < selectedDiv.classList.length; i++) {
+        if(selectedDiv.classList[i] === 'bombIdentifier') {
+          selectedDiv.classList.add('bomb')
+        }
+      }
+      }
+    );
   }
 }
 

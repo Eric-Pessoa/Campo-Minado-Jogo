@@ -1,5 +1,5 @@
 window.onload = () => {
-  appendChilds(12)
+  appendChilds(380)
   calculateIndividualTile()
 };
 
@@ -19,8 +19,8 @@ calculateIndividualTile = () => {
     const fatherElementVw = convertPixelToVw(container3[0].clientWidth);
     const fatherElementVh = convertPixelToVh(container3[0].clientHeight);
 
-    const childrenElementVw = Number((fatherElementVw / 3).toFixed(1) - 0.1)
-    const childrenElementVh = Number((fatherElementVh / 4).toFixed(1))
+    const childrenElementVw = Number((fatherElementVw / 20).toFixed(1))
+    const childrenElementVh = Number((fatherElementVh / 20).toFixed(1))
 
     let single_cell = document.getElementsByClassName("single_cell");
 

@@ -1,6 +1,7 @@
 window.onload = () => {
   appendChilds(380)
   calculateIndividualTile()
+  placeBombs()
 };
 
 convertPixelToVw = (pixelWidth) => {
@@ -37,6 +38,18 @@ appendChilds = (numberOfIndividualTiles) => {
   document.getElementsByClassName("container_3")[0].appendChild(newDiv);
  }
 }
+
+placeBombs = () => {
+  for (let i = 0; i < document.getElementsByClassName("single_cell").length; i++) {
+    const randomNumber = Math.floor(Math.random() * 101);
+    if(randomNumber > 50 && randomNumber % 2 === 0) {
+      const selectedDiv = document.getElementsByClassName("single_cell")[i];
+      selectedDiv.setAttribute('class', 'bomb');
+    }
+  }
+}
+
+
 
 
 

@@ -2,6 +2,13 @@ html, body {
   margin: 0px;
 }
 
+.bomb {
+    background-color: maroon;
+    box-shadow:0px 0px 0px 1px black inset;
+
+}
+
+
 .container_1 {
     background-color: aquamarine;
     margin: 0px;
@@ -34,6 +41,6 @@ html, body {
         }
 
             .single_cell {
-                box-shadow:0px 0px 0px 1px red inset;
-                background-color: greenyellow;
+                box-shadow:0px 0px 0px 1px black inset;
+                background-color: lightgray;
             }

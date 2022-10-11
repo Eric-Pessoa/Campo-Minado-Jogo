@@ -36,7 +36,6 @@ appendChilds = (numberOfIndividualTiles) => {
   for (let i = 0; i < numberOfIndividualTiles; i++) {
   const newDiv =  document.createElement("div");
   newDiv.classList.add('single_cell');
-  newDiv.innerText = i
   document.getElementsByClassName("container_3")[0].appendChild(newDiv);
  }
 }
@@ -204,6 +203,79 @@ const isANormalTile = (relativeTiles) => {
   if(relativeTiles.diagonalLowerRightDiv !== undefined) {
     relativeTiles.diagonalLowerRightDiv.style.backgroundColor = 'red'
   }
+}
+
+const checkBombsAround = (selectedDivNumber, relativeTiles) => {
+
+  let numberOfBombsFoundAround = 0;
+
+  for (let i = 0; i < relativeTiles.diagonalUpperLeftDiv.classList.length; i++) {
+    if(relativeTiles.diagonalUpperLeftDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.upperDiv.classList.length; i++) {
+    if(relativeTiles.upperDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.diagonalUpperRightDiv.classList.length; i++) {
+    if(relativeTiles.diagonalUpperRightDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.leftDiv.classList.length; i++) {
+    if(relativeTiles.leftDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.rightDiv.classList.length; i++) {
+    if(relativeTiles.rightDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.diagonalLowerLeftDiv.classList.length; i++) {
+    if(relativeTiles.diagonalLowerLeftDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.bottomDiv.classList.length; i++) {
+    if(relativeTiles.bottomDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+  for (let i = 0; i < relativeTiles.diagonalLowerRightDiv.classList.length; i++) {
+    if(relativeTiles.diagonalLowerRightDiv.classList[i] === 'bomb') {
+      numberOfBombsFoundAround++
+    }
+  }
+
+  const selectedDiv = document.getElementsByClassName("single_cell")[selectedDivNumber]
+  selectedDiv.style.fontWeight = "900"
+  selectedDiv.style.display = "flex"
+  selectedDiv.style.justifyContent = "center"
+  selectedDiv.style.alignItems = "center"
+
+  selectedDiv.innerText = numberOfBombsFoundAround
+
+  if(numberOfBombsFoundAround === 1) {
+    selectedDiv.style.color = 'grey'
+  }
+  if(numberOfBombsFoundAround === 2) {
+    selectedDiv.style.color = 'darkGreen'
+  }
+  if(numberOfBombsFoundAround === 3) {
+    selectedDiv.style.color = 'aqua'
+  }
+  if(numberOfBombsFoundAround === 4) {
+    selectedDiv.style.color = 'blueViolet'
+  }
+  if(numberOfBombsFoundAround === 5) {
+    selectedDiv.style.color = 'orange'
+  }
+  if(numberOfBombsFoundAround === 6) {
+    selectedDiv.style.color = 'crimson'
+  }
 
 }
 
@@ -217,8 +289,9 @@ const inferTiles = (selectedDivNumber) => {
   const rightDiv = document.getElementsByClassName("single_cell")[selectedDivNumber + 1]
   const diagonalLowerLeftDiv = document.getElementsByClassName("single_cell")[selectedDivNumber + 18]
   const bottomDiv = document.getElementsByClassName("single_cell")[selectedDivNumber + 19]
-  const diagonalLowerRightDiv = document.getElementsByClassName("single_cell")[selectedDivNumber + 20]    
+  const diagonalLowerRightDiv = document.getElementsByClassName("single_cell")[selectedDivNumber + 20]
 
+  
   const relativeTiles = {
     diagonalUpperLeftDiv,
     upperDiv,
@@ -229,6 +302,8 @@ const inferTiles = (selectedDivNumber) => {
     bottomDiv,
     diagonalLowerRightDiv
   }
+
+  checkBombsAround(selectedDivNumber, relativeTiles);
 
   LeftTiles = [19, 38, 57, 76, 95, 114, 133, 152, 171, 190, 209, 228, 247, 266, 285, 304, 323, 342]
   rightTiles = [37, 56, 75, 94, 113, 132, 151, 170, 189, 208, 227, 246, 265, 284, 303, 322, 341, 360]
